@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+  <style>
+      .pre {font-size: 10px; color: #333333; padding: 0 0;}
+    </style>
+</head>
+<div id="content">
+    
+</div>
+<script>
+  // helper function: log message to screen
+  function log(msg) {
+      var pre = document.createElement('pre');
+      pre.innerHTML = msg;
+      
+      var pre_css = document.createAttribute("class");
+      pre_css.nodeValue = "pre";
+      pre.setAttributeNode(pre_css);
+
+      document.getElementById('content').appendChild(pre);
+  }
+
+  // setup websocket with callbacks
+  // var ws = new WebSocket('ws://127.0.0.1:9000');
+  var ws = new WebSocket('ws://127.0.0.1:9000',
+			'echo-protocol');
+  ws.onopen = function() {
+    log('CONNECT');
+  };
+  ws.onclose = function() {
+    log('DISCONNECT');
+  };
+  ws.onmessage = function(event) {
+    log('console: ' + event.data);
+  };
+  for (let index = 0; index < 10; index++) {
+    setTimeout(() => {
+      ws.send("send"+index);
+    }, 1000);
+  }
+  ws.send("12345")
+</script>
