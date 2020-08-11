@@ -10,9 +10,10 @@
 		D1C4960CC3BB5E7E1F35A3FB /* libPods-YYDebugManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5937B20D679293D2F2078388 /* libPods-YYDebugManager.a */; };
 		E86989A124D962FF00DD2BE0 /* YYDebugNetworkKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A024D962FF00DD2BE0 /* YYDebugNetworkKit.m */; };
 		E86989A424D98A8300DD2BE0 /* YYDebugNSURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A324D98A8300DD2BE0 /* YYDebugNSURLProtocol.m */; };
-		E86989A724DBDE6300DD2BE0 /* NSObject+NSObject_ivar.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A624DBDE6300DD2BE0 /* NSObject+NSObject_ivar.m */; };
 		E86989AA24DCDE4F00DD2BE0 /* YYDebugMessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A924DCDE4E00DD2BE0 /* YYDebugMessageCenter.m */; };
 		E86989AD24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989AC24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.m */; };
+		E86989B024E250EA00DD2BE0 /* YYDebugManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989AF24E250EA00DD2BE0 /* YYDebugManager.m */; };
+		E86989B224E26C4800DD2BE0 /* YYDebugManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E86989B124E26C4800DD2BE0 /* YYDebugManager.podspec */; };
 		E87DF68124D7E33F0055406C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DF68024D7E33F0055406C /* AppDelegate.m */; };
 		E87DF68424D7E33F0055406C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DF68324D7E33F0055406C /* SceneDelegate.m */; };
 		E87DF68724D7E33F0055406C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DF68624D7E33F0055406C /* ViewController.m */; };
@@ -24,6 +25,9 @@
 		E87DF6A724D7E3400055406C /* YYDebugManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DF6A624D7E3400055406C /* YYDebugManagerUITests.m */; };
 		E87DF6B724D7E7E40055406C /* YYDebugLogKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E87DF6B624D7E7E40055406C /* YYDebugLogKit.m */; };
 		E87DF6B924D805DE0055406C /* Web.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E87DF6B824D805DE0055406C /* Web.bundle */; };
+		E8B23DE324E3C7540018AAD1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B23DE224E3C7540018AAD1 /* WebKit.framework */; };
+		E8BCBA5D24E38AFB008B861E /* NSURLProtocol+WKWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BCBA5C24E38AFB008B861E /* NSURLProtocol+WKWebview.m */; };
+		E8BCBA6024E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BCBA5F24E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +55,13 @@
 		E86989A024D962FF00DD2BE0 /* YYDebugNetworkKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugNetworkKit.m; sourceTree = "<group>"; };
 		E86989A224D98A8300DD2BE0 /* YYDebugNSURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugNSURLProtocol.h; sourceTree = "<group>"; };
 		E86989A324D98A8300DD2BE0 /* YYDebugNSURLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugNSURLProtocol.m; sourceTree = "<group>"; };
-		E86989A524DBDE6300DD2BE0 /* NSObject+NSObject_ivar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSObject_ivar.h"; sourceTree = "<group>"; };
-		E86989A624DBDE6300DD2BE0 /* NSObject+NSObject_ivar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSObject_ivar.m"; sourceTree = "<group>"; };
 		E86989A824DCDE4E00DD2BE0 /* YYDebugMessageCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugMessageCenter.h; sourceTree = "<group>"; };
 		E86989A924DCDE4E00DD2BE0 /* YYDebugMessageCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugMessageCenter.m; sourceTree = "<group>"; };
 		E86989AB24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugURLSessionTaskManager.h; sourceTree = "<group>"; };
 		E86989AC24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugURLSessionTaskManager.m; sourceTree = "<group>"; };
+		E86989AE24E250EA00DD2BE0 /* YYDebugManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugManager.h; sourceTree = "<group>"; };
+		E86989AF24E250EA00DD2BE0 /* YYDebugManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugManager.m; sourceTree = "<group>"; };
+		E86989B124E26C4800DD2BE0 /* YYDebugManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = YYDebugManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E87DF67C24D7E33F0055406C /* YYDebugManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYDebugManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87DF67F24D7E33F0055406C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E87DF68024D7E33F0055406C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +83,11 @@
 		E87DF6B524D7E7E40055406C /* YYDebugLogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugLogKit.h; sourceTree = "<group>"; };
 		E87DF6B624D7E7E40055406C /* YYDebugLogKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugLogKit.m; sourceTree = "<group>"; };
 		E87DF6B824D805DE0055406C /* Web.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Web.bundle; sourceTree = "<group>"; };
+		E8B23DE224E3C7540018AAD1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E8BCBA5B24E38AFB008B861E /* NSURLProtocol+WKWebview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WKWebview.h"; sourceTree = "<group>"; };
+		E8BCBA5C24E38AFB008B861E /* NSURLProtocol+WKWebview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WKWebview.m"; sourceTree = "<group>"; };
+		E8BCBA5E24E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionConfiguration+YYDebug.h"; sourceTree = "<group>"; };
+		E8BCBA5F24E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionConfiguration+YYDebug.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8B23DE324E3C7540018AAD1 /* WebKit.framework in Frameworks */,
 				D1C4960CC3BB5E7E1F35A3FB /* libPods-YYDebugManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +129,7 @@
 		E87DF67324D7E33F0055406C = {
 			isa = PBXGroup;
 			children = (
+				E86989B124E26C4800DD2BE0 /* YYDebugManager.podspec */,
 				E87DF6B424D7E7BB0055406C /* project */,
 				E87DF67E24D7E33F0055406C /* YYDebugManager */,
 				E87DF69A24D7E3400055406C /* YYDebugManagerTests */,
@@ -188,8 +200,12 @@
 				E86989AC24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.m */,
 				E86989A824DCDE4E00DD2BE0 /* YYDebugMessageCenter.h */,
 				E86989A924DCDE4E00DD2BE0 /* YYDebugMessageCenter.m */,
-				E86989A524DBDE6300DD2BE0 /* NSObject+NSObject_ivar.h */,
-				E86989A624DBDE6300DD2BE0 /* NSObject+NSObject_ivar.m */,
+				E86989AE24E250EA00DD2BE0 /* YYDebugManager.h */,
+				E86989AF24E250EA00DD2BE0 /* YYDebugManager.m */,
+				E8BCBA5B24E38AFB008B861E /* NSURLProtocol+WKWebview.h */,
+				E8BCBA5C24E38AFB008B861E /* NSURLProtocol+WKWebview.m */,
+				E8BCBA5E24E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.h */,
+				E8BCBA5F24E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.m */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -197,6 +213,7 @@
 		F93E2EAE44E8DE58D72FF11D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8B23DE224E3C7540018AAD1 /* WebKit.framework */,
 				5937B20D679293D2F2078388 /* libPods-YYDebugManager.a */,
 			);
 			name = Frameworks;
@@ -308,6 +325,7 @@
 			files = (
 				E87DF6B924D805DE0055406C /* Web.bundle in Resources */,
 				E87DF68F24D7E3400055406C /* LaunchScreen.storyboard in Resources */,
+				E86989B224E26C4800DD2BE0 /* YYDebugManager.podspec in Resources */,
 				E87DF68C24D7E3400055406C /* Assets.xcassets in Resources */,
 				E87DF68A24D7E33F0055406C /* Main.storyboard in Resources */,
 			);
@@ -359,16 +377,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8BCBA5D24E38AFB008B861E /* NSURLProtocol+WKWebview.m in Sources */,
 				E87DF68724D7E33F0055406C /* ViewController.m in Sources */,
+				E86989B024E250EA00DD2BE0 /* YYDebugManager.m in Sources */,
 				E86989AD24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.m in Sources */,
 				E87DF68124D7E33F0055406C /* AppDelegate.m in Sources */,
 				E87DF6B724D7E7E40055406C /* YYDebugLogKit.m in Sources */,
+				E8BCBA6024E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.m in Sources */,
 				E87DF69224D7E3400055406C /* main.m in Sources */,
 				E87DF68424D7E33F0055406C /* SceneDelegate.m in Sources */,
 				E86989A424D98A8300DD2BE0 /* YYDebugNSURLProtocol.m in Sources */,
 				E86989A124D962FF00DD2BE0 /* YYDebugNetworkKit.m in Sources */,
 				E86989AA24DCDE4F00DD2BE0 /* YYDebugMessageCenter.m in Sources */,
-				E86989A724DBDE6300DD2BE0 /* NSObject+NSObject_ivar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

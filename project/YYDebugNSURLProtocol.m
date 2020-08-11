@@ -43,6 +43,11 @@ static NSString * const kYYDebugProtocolKey = @"YYDebugProtocolKey";
     return g_sharedInstance;
 }
 
++ (BOOL)canInitWithTask:(NSURLSessionTask *)task {
+    NSURLRequest *request = task.currentRequest;
+    return request == nil ? NO : [self canInitWithRequest:request];
+}
+
 + (BOOL)canInitWithRequest:(NSURLRequest *)request {
     if ([NSURLProtocol propertyForKey:kYYDebugProtocolKey inRequest:request]) {
         return NO;
@@ -73,7 +78,7 @@ static NSString * const kYYDebugProtocolKey = @"YYDebugProtocolKey";
 
 
 - (void)startLoading {
-    NSURLRequest *recursiveRequest = [[self class] canonicalRequestForRequest:self.request];
+    NSURLRequest *recursiveRequest = nil;
     
     NSMutableArray *calculatedModes = [NSMutableArray array];
     [calculatedModes addObject:NSDefaultRunLoopMode];
@@ -98,6 +103,7 @@ static NSString * const kYYDebugProtocolKey = @"YYDebugProtocolKey";
 }
 
 - (void)stopLoading {
+    
     if (self.task != nil) {
         [self.task cancel];
         self.task = nil;
@@ -138,7 +144,7 @@ static NSString * const kYYDebugProtocolKey = @"YYDebugProtocolKey";
 
 #pragma mark ==================== NSURLSessionTaskDelegate ====================
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didFinishCollectingMetrics:(NSURLSessionTaskMetrics *)metrics {
-    NSLog(@"metrics:%@", metrics.debugDescription);
+    
 }
 
 @end

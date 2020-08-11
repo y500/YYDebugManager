@@ -10,20 +10,33 @@
 #import "fishhook.h"
 #import "BLWebSocketsServer.h"
 #import "YYDebugMessageCenter.h"
+#include <sys/_types/_iovec_t.h>
 
-static void (*orig_nslog)(NSString *format, ...);
+//static void (*orig_NSLog)(NSString *format, ...);
+//
+//void(new_NSLog)(NSString *format, ...) {
+//    va_list args;
+//    if(format) {
+//        va_start(args, format);
+//        NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+//        NSData *data = [[YYDebugMessageCenter sharedInstance] logMessageDataWith:message color:@"#333333"];
+//        [[BLWebSocketsServer sharedInstance] pushToAll:data];
+//        orig_NSLog(@"%@", message);
+//        va_end(args);
+//    }
+//}
 
-void my_nslog(NSString *format, ...) {
-    va_list vl;
-    va_start(vl, format);
-    NSString* str = [[NSString alloc] initWithFormat:format arguments:vl];
-    va_end(vl);
-    orig_nslog(str);
-    
-    NSString *color = rand()%2 ? @"#333333" : @"#ff0000";
-    NSData *data = [[YYDebugMessageCenter sharedInstance] logMessageDataWith:str color:color ];
-    orig_nslog(color);
+static ssize_t (*orig_writev)(int a, const struct iovec * v, int v_len);
+ssize_t new_writev(int a, const struct iovec *v, int v_len) {
+    NSMutableString *string = [NSMutableString string];
+    for (int i = 0; i < v_len; i++) {
+        char *c = (char *)v[i].iov_base;
+        [string appendString:[NSString stringWithCString:c encoding:NSUTF8StringEncoding]];
+    }
+    ssize_t result = orig_writev(a, v, v_len);
+    NSData *data = [[YYDebugMessageCenter sharedInstance] logMessageDataWith:string color:@"#333333"];
     [[BLWebSocketsServer sharedInstance] pushToAll:data];
+    return result;
 }
 
 @implementation YYDebugLogKit
@@ -39,8 +52,7 @@ void my_nslog(NSString *format, ...) {
 }
 
 - (void)startNSLogMonitor {
-    struct rebinding nslog_rebinding = {"NSLog",my_nslog,(void*)&orig_nslog};
-    rebind_symbols((struct rebinding[1]){nslog_rebinding}, 1);
+    rebind_symbols((struct rebinding[1]){{"writev", new_writev, (void *)&orig_writev}}, 1);
 }
 
 @end

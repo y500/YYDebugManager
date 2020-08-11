@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YYDebugLogKit.h"
-#import "YYDebugNetworkKit.h"
+#import "YYDebugManager.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[YYDebugLogKit sharedInstance] startNSLogMonitor];
-    [[YYDebugNetworkKit sharedInstance] setupNetworkInterceptor];
+   
+    [[YYDebugManager sharedInstance] start];
     
     return YES;
 }

@@ -8,6 +8,8 @@
 
 #import "YYDebugNetworkKit.h"
 #import "YYDebugNSURLProtocol.h"
+#import <WebKit/WebKit.h>
+#import "NSURLProtocol+WKWebview.h"
 
 @implementation YYDebugNetworkKit
 
@@ -22,6 +24,12 @@
 }
 
 - (void)setupNetworkInterceptor {
+    
+//    [WKBrowsingContextController registerSchemeForCustomProtocol:[YYDebugNSURLProtocol class]];
+    
+    [NSURLProtocol wk_registerScheme:@"http"];
+    [NSURLProtocol wk_registerScheme:@"https"];
+    
     [NSURLProtocol registerClass:[YYDebugNSURLProtocol class]];
 }
 

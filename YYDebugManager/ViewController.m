@@ -34,62 +34,25 @@ static NSString *echoProtocol = @"echo-protocol";
     [button setTitle:@"start server" forState:UIControlStateNormal];
     [self.view addSubview:button];
     
-    [self startWebServer];
-}
-
-- (void)setupEchoServer {
-    [[BLWebSocketsServer sharedInstance] setHandleRequestBlock:^NSData *(NSData *requestData) {
-        return requestData;
-    }];
 }
 
 /* Start/Stop the server */
 - (void)toggleServer:(UIButton *)sender {
-    sender.enabled = NO;
-    /* If the server is running */
-    if ([BLWebSocketsServer sharedInstance].isRunning) {
-        /* The server is stopped */
-        [[BLWebSocketsServer sharedInstance] stopWithCompletionBlock:^ {
-            NSLog(@"Server stopped");
-            [sender setTitle:@"Start Server" forState:UIControlStateNormal];
-            sender.enabled = YES;
-        }];
-    }
-    /* If it is not running */
-    else {
-        /* The server is started */
-        [[BLWebSocketsServer sharedInstance] startListeningOnPort:port withProtocolName:echoProtocol andCompletionBlock:^(NSError *error) {
-            NSLog(@"Server started");
-            [sender setTitle:@"Stop Server" forState:UIControlStateNormal];
-            sender.enabled = YES;
-            
-            [self logWithPush];
-            
-            [self performSelector:@selector(networkTest) withObject:nil afterDelay:5];
-        }];
-    }
-}
-
-- (void)startWebServer {
-    _webServer = [[GCDWebServer alloc] init];
-    
-    NSURL *bundleURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"Web" withExtension:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    [_webServer addGETHandlerForBasePath:@"/" directoryPath:[bundle resourcePath] indexFilename:@"index.html" cacheAge:0 allowRangeRequests:YES];
-    
-    [_webServer startWithPort:9001 bonjourName:nil];
+    [self networkTest];
+    [self webpageTest];
 }
 
 - (void)logWithPush {
-//    for (int i = 0; i < 100; i++) {
-//        NSLog(@"nslog is triggered:%d", i);
-//        sleep(1);
-//    }
+    for (int i = 0; i < 100; i++) {
+        NSLog(@"nslog is triggered:%d", i);
+        sleep(1);
+    }
 }
 
 - (void)networkTest {
+        
     //创建一个网络路径
-    NSString *browseUrl = [NSString stringWithFormat:@"https://www.sojson.com/open/api/weather/json.shtml?city=%@", @"北京"];
+    NSString *browseUrl = [NSString stringWithFormat:@"https://www.sojson.com/tesssss.mtx%@", @"北京"];
     //处理一下特殊字符汉字等
     browseUrl =  [browseUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     //创建一个网络请求
@@ -108,6 +71,22 @@ static NSString *echoProtocol = @"echo-protocol";
     NSLog(@"sessionDataTask------>%p", sessionDataTask);
     //执行任务
     [sessionDataTask resume];
+    
+    
+    
+    
+}
+
+- (void)webpageTest {
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://qdddxxq.com"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+    }] resume];
+        
+    return;
+    [[[NSURLSession sharedSession] dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://jt.rsscc.com/gtgjxad/adver/advertisementV2.action?pid=2008&uid=2a25d24b180701bce&uuid=PRO-D8F540C0-AAB5-4FAD-A776-D9991ECADECB&idfa=8791B4C3-498A-4706-9082-70541EFC16E7&appopentime=1596521526843&gtgjtime=2020-08-04%2014:12:07&gtgjuid=2a25d24b180701bce&ua=22659518352850944/66457964E6022B5192F3243E71FD8AEE&iscorpuser=1&sid=F04398E9&p=appstorepro,ios,13.4.1,gtgjpro,7.3.7,iPhone12.1,0&hlo_platform=%7B%22source%22%3A%22appstorepro%22%2C%22hbgjVer%22%3A%227.8%22%2C%22gtgjVer%22%3A%227.3.7%22%2C%22linkmode%22%3A%22wifi%22%2C%22linkcode%22%3A%2201%22%2C%22linkmcc%22%3A%22460%22%2C%22agent%22%3A%22Mozilla%5C%2F5.0%20%28iPhone%3B%20CPU%20iPhone%20OS%2013_4_1%20like%20Mac%20OS%20X%29%20AppleWebKit%5C%2F605.1.15%20%28KHTML%2C%20like%20Gecko%29%20Mobile%5C%2F15E148%22%2C%22name%22%3A%22gtgjpro%22%2C%22os%22%3A%22ios%22%2C%22root%22%3A%220%22%2C%22osVer%22%3A%2213.4.1%22%2C%22isPro%22%3A%221%22%2C%22model%22%3A%22iPhone12.1%22%2C%22module%22%3A%22gtgj%22%7D&x=828&y=1792&startapp=1&refmt=json&tmc=0"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+    }] resume];
 }
 
 @end
