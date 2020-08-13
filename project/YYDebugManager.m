@@ -47,6 +47,25 @@ static NSString *echoProtocol = @"echo-protocol";
 }
 
 - (void)startEchoServer {
+    
+    [[BLWebSocketsServer sharedInstance] setHandleRequestBlock:^NSData *(NSData *requestData) {
+        
+        id json = [NSJSONSerialization JSONObjectWithData:requestData options:NSJSONReadingFragmentsAllowed error:nil];
+        
+        NSData *responseData = [NSData data];
+        if ([NSJSONSerialization isValidJSONObject:json]) {
+            if ([json[@"type"] isEqual:@"control"]) {
+                responseData = [@"operate success!" dataUsingEncoding:NSUTF8StringEncoding];
+            }
+            
+            requestData = [NSJSONSerialization dataWithJSONObject:@{@"result":@"operate success!"} options:NSJSONWritingPrettyPrinted error:nil];
+        } else {
+            responseData = [NSJSONSerialization dataWithJSONObject:@{@"result":@"invalid command!!!"} options:NSJSONWritingPrettyPrinted error:nil];
+        }
+        
+        return requestData;
+    }];
+    
     if (![BLWebSocketsServer sharedInstance].isRunning) {
         [[BLWebSocketsServer sharedInstance] startListeningOnPort:port withProtocolName:echoProtocol andCompletionBlock:^(NSError *error) {
             [self startMonitor];
