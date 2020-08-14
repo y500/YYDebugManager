@@ -19,9 +19,9 @@ static NSString *errorDomain = @"com.blwebsocketsserver";
 
 /* Declaration of the callbacks (http and websockets), libwebsockets requires an http callback even if we don't use it*/
 static int callback_websockets(struct libwebsocket_context * this,
-             struct libwebsocket *wsi,
-             enum libwebsocket_callback_reasons reason,
-             void *user, void *in, size_t len);
+                               struct libwebsocket *wsi,
+                               enum libwebsocket_callback_reasons reason,
+                               void *user, void *in, size_t len);
 
 
 static int callback_http(struct libwebsocket_context *context,
@@ -70,7 +70,7 @@ static BLWebSocketsServer *sharedInstance = nil;
     }
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
-        
+    
     dispatch_async(queue, ^{
         
         /* Context creation */
@@ -92,8 +92,8 @@ static BLWebSocketsServer *sharedInstance = nil;
             }
         };
         self.context = libwebsocket_create_context(port, NULL, protocols,
-                                              libwebsocket_internal_extensions,
-                                              NULL, NULL, NULL, -1, -1, 0, NULL);
+                                                   libwebsocket_internal_extensions,
+                                                   NULL, NULL, NULL, -1, -1, 0, NULL);
         NSError *error = nil;
         if (self.context == NULL) {
             error = [NSError errorWithDomain:errorDomain code:0 userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Couldn't create the libwebsockets context.", @"")}];
@@ -120,7 +120,7 @@ static BLWebSocketsServer *sharedInstance = nil;
             self.isRunning = NO;
             
             [self cleanup];
-        
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.serverStoppedCompletionBlock();
                 self.serverStoppedCompletionBlock = nil;
@@ -175,9 +175,9 @@ static void write_data_websockets(NSData *data, struct libwebsocket *wsi) {
 
 /* Implementation of the callbacks (http and websockets) */
 static int callback_websockets(struct libwebsocket_context * this,
-             struct libwebsocket *wsi,
-             enum libwebsocket_callback_reasons reason,
-             void *user, void *in, size_t len) {
+                               struct libwebsocket *wsi,
+                               enum libwebsocket_callback_reasons reason,
+                               void *user, void *in, size_t len) {
     int *session_id = (int *) user;
     switch (reason) {
         case LWS_CALLBACK_ESTABLISHED:
@@ -217,6 +217,75 @@ static int callback_http(struct libwebsocket_context *context,
                          enum libwebsocket_callback_reasons reason, void *user,
                          void *in, size_t len)
 {
+    char resource_name[512];
+    char *extension;
+    char mime[256];
+    
+    switch (reason) {
+        case LWS_CALLBACK_HTTP: {
+            
+            
+            NSURL *bundleURL = [[NSBundle bundleForClass:NSClassFromString(@"YYDebugManager")] URLForResource:@"Web" withExtension:@"bundle"];
+            NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
+            NSString *path = [bundle resourcePath];
+            
+            strcpy(resource_name, [path UTF8String]);
+            strcat(resource_name, (char *) in);
+            
+            //访问根目录的话，自动加上index.html
+            unsigned long res_len = strlen(resource_name);
+            if (res_len > 0) {
+                char last = resource_name[res_len - 1];
+                if (last == '/') {
+                    strcat(resource_name, "/index.html");
+                }
+            }
+            
+            extension = strrchr(resource_name, '.');
+            // choose mime type based on the file extension
+            if (extension == NULL) {
+                strncpy(mime,"text/plain",255);
+            } else if (strcmp(extension, ".png") == 0) {
+                strncpy(mime,"image/png",255);
+            } else if (strcmp(extension, ".jpg") == 0) {
+                strncpy(mime,"image/jpg",255);
+            } else if (strcmp(extension, ".gif") == 0) {
+                strncpy(mime,"image/gif",255);
+            } else if (strcmp(extension, ".html") == 0) {
+                strncpy(mime,"text/html",255);
+            } else if (strcmp(extension, ".css") == 0) {
+                strncpy(mime,"text/css",255);
+            } else if (strcmp(extension, ".js") == 0) {
+                strncpy(mime,"application/x-javascript",255);
+            } else {
+                strncpy(mime,"text/plain",255);
+            }
+            
+            NSLog(@"=========%s--[%s]", resource_name, extension);
+            
+            
+            
+            fprintf(stderr, "serving HTTP URI %s\n", resource_name);
+            if (libwebsockets_serve_http_file(context, wsi, resource_name, mime))
+                return -1; /* through completion or error, close the socket */
+            
+            /*
+             * notice that the sending of the file completes asynchronously,
+             * we'll get a LWS_CALLBACK_HTTP_FILE_COMPLETION callback when
+             * it's done
+             */
+        }
+            break;
+            
+        case LWS_CALLBACK_HTTP_FILE_COMPLETION:
+            //        lwsl_info("LWS_CALLBACK_HTTP_FILE_COMPLETION seen\n");
+            /* kill the connection after we sent one file */
+            return -1;
+            
+        default:
+            break;
+    }
+    
     return 0;
 }
 
