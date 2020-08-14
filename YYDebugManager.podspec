@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YYDebugManager'
-  s.version          = '1.0.0'
+  s.version          = '0.1.0'
   s.summary          = 'view log and network data on web'
 
   s.homepage         = 'https://y500.me'
