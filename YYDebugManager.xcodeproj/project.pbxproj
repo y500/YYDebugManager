@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		D1C4960CC3BB5E7E1F35A3FB /* libPods-YYDebugManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5937B20D679293D2F2078388 /* libPods-YYDebugManager.a */; };
+		E81397F924E626060002FBDB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E81397F824E625FE0002FBDB /* libz.tbd */; };
+		E813984C24E62FC90002FBDB /* BLAsyncMessageQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E813983424E62FC90002FBDB /* BLAsyncMessageQueue.m */; };
+		E813984D24E62FC90002FBDB /* BLWebSocketsServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E813983524E62FC90002FBDB /* BLWebSocketsServer.m */; };
+		E813984E24E62FC90002FBDB /* extension.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983924E62FC90002FBDB /* extension.c */; };
+		E813984F24E62FC90002FBDB /* extension-deflate-stream.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983A24E62FC90002FBDB /* extension-deflate-stream.c */; };
+		E813985024E62FC90002FBDB /* daemonize.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983B24E62FC90002FBDB /* daemonize.c */; };
+		E813985124E62FC90002FBDB /* getifaddrs.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983C24E62FC90002FBDB /* getifaddrs.c */; };
+		E813985224E62FC90002FBDB /* parsers.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983D24E62FC90002FBDB /* parsers.c */; };
+		E813985324E62FC90002FBDB /* libwebsockets.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983E24E62FC90002FBDB /* libwebsockets.c */; };
+		E813985424E62FC90002FBDB /* base64-decode.c in Sources */ = {isa = PBXBuildFile; fileRef = E813983F24E62FC90002FBDB /* base64-decode.c */; };
+		E813985524E62FC90002FBDB /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984024E62FC90002FBDB /* server.c */; };
+		E813985624E62FC90002FBDB /* sha-1.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984124E62FC90002FBDB /* sha-1.c */; };
+		E813985724E62FC90002FBDB /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984224E62FC90002FBDB /* client.c */; };
+		E813985824E62FC90002FBDB /* server-handshake.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984324E62FC90002FBDB /* server-handshake.c */; };
+		E813985924E62FC90002FBDB /* handshake.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984424E62FC90002FBDB /* handshake.c */; };
+		E813985A24E62FC90002FBDB /* client-parser.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984624E62FC90002FBDB /* client-parser.c */; };
+		E813985B24E62FC90002FBDB /* extension-deflate-frame.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984824E62FC90002FBDB /* extension-deflate-frame.c */; };
+		E813985C24E62FC90002FBDB /* client-handshake.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984924E62FC90002FBDB /* client-handshake.c */; };
+		E813985D24E62FC90002FBDB /* output.c in Sources */ = {isa = PBXBuildFile; fileRef = E813984B24E62FC90002FBDB /* output.c */; };
 		E86989A124D962FF00DD2BE0 /* YYDebugNetworkKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A024D962FF00DD2BE0 /* YYDebugNetworkKit.m */; };
 		E86989A424D98A8300DD2BE0 /* YYDebugNSURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A324D98A8300DD2BE0 /* YYDebugNSURLProtocol.m */; };
 		E86989AA24DCDE4F00DD2BE0 /* YYDebugMessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E86989A924DCDE4E00DD2BE0 /* YYDebugMessageCenter.m */; };
@@ -51,6 +70,32 @@
 		36570944FFB4E274CA05A9DE /* Pods-YYDebugManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYDebugManager.release.xcconfig"; path = "Target Support Files/Pods-YYDebugManager/Pods-YYDebugManager.release.xcconfig"; sourceTree = "<group>"; };
 		55FBBFCB89B89A647C78960A /* Pods-YYDebugManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYDebugManager.debug.xcconfig"; path = "Target Support Files/Pods-YYDebugManager/Pods-YYDebugManager.debug.xcconfig"; sourceTree = "<group>"; };
 		5937B20D679293D2F2078388 /* libPods-YYDebugManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYDebugManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E81397F824E625FE0002FBDB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E813983224E62FC90002FBDB /* BLWebSocketsServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLWebSocketsServer.h; sourceTree = "<group>"; };
+		E813983324E62FC90002FBDB /* extension-deflate-frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "extension-deflate-frame.h"; sourceTree = "<group>"; };
+		E813983424E62FC90002FBDB /* BLAsyncMessageQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAsyncMessageQueue.m; sourceTree = "<group>"; };
+		E813983524E62FC90002FBDB /* BLWebSocketsServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLWebSocketsServer.m; sourceTree = "<group>"; };
+		E813983624E62FC90002FBDB /* extension-deflate-stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "extension-deflate-stream.h"; sourceTree = "<group>"; };
+		E813983724E62FC90002FBDB /* BLAsyncMessageQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAsyncMessageQueue.h; sourceTree = "<group>"; };
+		E813983924E62FC90002FBDB /* extension.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = extension.c; sourceTree = "<group>"; };
+		E813983A24E62FC90002FBDB /* extension-deflate-stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "extension-deflate-stream.c"; sourceTree = "<group>"; };
+		E813983B24E62FC90002FBDB /* daemonize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daemonize.c; sourceTree = "<group>"; };
+		E813983C24E62FC90002FBDB /* getifaddrs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getifaddrs.c; sourceTree = "<group>"; };
+		E813983D24E62FC90002FBDB /* parsers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parsers.c; sourceTree = "<group>"; };
+		E813983E24E62FC90002FBDB /* libwebsockets.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libwebsockets.c; sourceTree = "<group>"; };
+		E813983F24E62FC90002FBDB /* base64-decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "base64-decode.c"; sourceTree = "<group>"; };
+		E813984024E62FC90002FBDB /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		E813984124E62FC90002FBDB /* sha-1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "sha-1.c"; sourceTree = "<group>"; };
+		E813984224E62FC90002FBDB /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
+		E813984324E62FC90002FBDB /* server-handshake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "server-handshake.c"; sourceTree = "<group>"; };
+		E813984424E62FC90002FBDB /* handshake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = handshake.c; sourceTree = "<group>"; };
+		E813984524E62FC90002FBDB /* getifaddrs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getifaddrs.h; sourceTree = "<group>"; };
+		E813984624E62FC90002FBDB /* client-parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "client-parser.c"; sourceTree = "<group>"; };
+		E813984724E62FC90002FBDB /* libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwebsockets.h; sourceTree = "<group>"; };
+		E813984824E62FC90002FBDB /* extension-deflate-frame.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "extension-deflate-frame.c"; sourceTree = "<group>"; };
+		E813984924E62FC90002FBDB /* client-handshake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "client-handshake.c"; sourceTree = "<group>"; };
+		E813984A24E62FC90002FBDB /* private-libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "private-libwebsockets.h"; sourceTree = "<group>"; };
+		E813984B24E62FC90002FBDB /* output.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = output.c; sourceTree = "<group>"; };
 		E869899F24D962FF00DD2BE0 /* YYDebugNetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugNetworkKit.h; sourceTree = "<group>"; };
 		E86989A024D962FF00DD2BE0 /* YYDebugNetworkKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDebugNetworkKit.m; sourceTree = "<group>"; };
 		E86989A224D98A8300DD2BE0 /* YYDebugNSURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDebugNSURLProtocol.h; sourceTree = "<group>"; };
@@ -96,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B23DE324E3C7540018AAD1 /* WebKit.framework in Frameworks */,
+				E81397F924E626060002FBDB /* libz.tbd in Frameworks */,
 				D1C4960CC3BB5E7E1F35A3FB /* libPods-YYDebugManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +170,46 @@
 				36570944FFB4E274CA05A9DE /* Pods-YYDebugManager.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E813983124E62FC90002FBDB /* BLWebSocketsServer */ = {
+			isa = PBXGroup;
+			children = (
+				E813983224E62FC90002FBDB /* BLWebSocketsServer.h */,
+				E813983324E62FC90002FBDB /* extension-deflate-frame.h */,
+				E813983424E62FC90002FBDB /* BLAsyncMessageQueue.m */,
+				E813983524E62FC90002FBDB /* BLWebSocketsServer.m */,
+				E813983624E62FC90002FBDB /* extension-deflate-stream.h */,
+				E813983724E62FC90002FBDB /* BLAsyncMessageQueue.h */,
+				E813983824E62FC90002FBDB /* libwebsockets */,
+			);
+			path = BLWebSocketsServer;
+			sourceTree = "<group>";
+		};
+		E813983824E62FC90002FBDB /* libwebsockets */ = {
+			isa = PBXGroup;
+			children = (
+				E813983924E62FC90002FBDB /* extension.c */,
+				E813983A24E62FC90002FBDB /* extension-deflate-stream.c */,
+				E813983B24E62FC90002FBDB /* daemonize.c */,
+				E813983C24E62FC90002FBDB /* getifaddrs.c */,
+				E813983D24E62FC90002FBDB /* parsers.c */,
+				E813983E24E62FC90002FBDB /* libwebsockets.c */,
+				E813983F24E62FC90002FBDB /* base64-decode.c */,
+				E813984024E62FC90002FBDB /* server.c */,
+				E813984124E62FC90002FBDB /* sha-1.c */,
+				E813984224E62FC90002FBDB /* client.c */,
+				E813984324E62FC90002FBDB /* server-handshake.c */,
+				E813984424E62FC90002FBDB /* handshake.c */,
+				E813984524E62FC90002FBDB /* getifaddrs.h */,
+				E813984624E62FC90002FBDB /* client-parser.c */,
+				E813984724E62FC90002FBDB /* libwebsockets.h */,
+				E813984824E62FC90002FBDB /* extension-deflate-frame.c */,
+				E813984924E62FC90002FBDB /* client-handshake.c */,
+				E813984A24E62FC90002FBDB /* private-libwebsockets.h */,
+				E813984B24E62FC90002FBDB /* output.c */,
+			);
+			path = libwebsockets;
 			sourceTree = "<group>";
 		};
 		E87DF67324D7E33F0055406C = {
@@ -189,6 +275,7 @@
 		E87DF6B424D7E7BB0055406C /* project */ = {
 			isa = PBXGroup;
 			children = (
+				E813983124E62FC90002FBDB /* BLWebSocketsServer */,
 				E87DF6B524D7E7E40055406C /* YYDebugLogKit.h */,
 				E87DF6B624D7E7E40055406C /* YYDebugLogKit.m */,
 				E87DF6B824D805DE0055406C /* Web.bundle */,
@@ -213,6 +300,7 @@
 		F93E2EAE44E8DE58D72FF11D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E81397F824E625FE0002FBDB /* libz.tbd */,
 				E8B23DE224E3C7540018AAD1 /* WebKit.framework */,
 				5937B20D679293D2F2078388 /* libPods-YYDebugManager.a */,
 			);
@@ -377,17 +465,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E813985D24E62FC90002FBDB /* output.c in Sources */,
+				E813985524E62FC90002FBDB /* server.c in Sources */,
+				E813985624E62FC90002FBDB /* sha-1.c in Sources */,
+				E813984D24E62FC90002FBDB /* BLWebSocketsServer.m in Sources */,
+				E813985824E62FC90002FBDB /* server-handshake.c in Sources */,
+				E813984E24E62FC90002FBDB /* extension.c in Sources */,
 				E8BCBA5D24E38AFB008B861E /* NSURLProtocol+WKWebview.m in Sources */,
+				E813984F24E62FC90002FBDB /* extension-deflate-stream.c in Sources */,
 				E87DF68724D7E33F0055406C /* ViewController.m in Sources */,
+				E813985A24E62FC90002FBDB /* client-parser.c in Sources */,
+				E813985324E62FC90002FBDB /* libwebsockets.c in Sources */,
+				E813985724E62FC90002FBDB /* client.c in Sources */,
 				E86989B024E250EA00DD2BE0 /* YYDebugManager.m in Sources */,
 				E86989AD24DE4F5900DD2BE0 /* YYDebugURLSessionTaskManager.m in Sources */,
+				E813984C24E62FC90002FBDB /* BLAsyncMessageQueue.m in Sources */,
 				E87DF68124D7E33F0055406C /* AppDelegate.m in Sources */,
+				E813985424E62FC90002FBDB /* base64-decode.c in Sources */,
 				E87DF6B724D7E7E40055406C /* YYDebugLogKit.m in Sources */,
+				E813985024E62FC90002FBDB /* daemonize.c in Sources */,
 				E8BCBA6024E3BCC2008B861E /* NSURLSessionConfiguration+YYDebug.m in Sources */,
 				E87DF69224D7E3400055406C /* main.m in Sources */,
+				E813985224E62FC90002FBDB /* parsers.c in Sources */,
+				E813985B24E62FC90002FBDB /* extension-deflate-frame.c in Sources */,
 				E87DF68424D7E33F0055406C /* SceneDelegate.m in Sources */,
 				E86989A424D98A8300DD2BE0 /* YYDebugNSURLProtocol.m in Sources */,
 				E86989A124D962FF00DD2BE0 /* YYDebugNetworkKit.m in Sources */,
+				E813985C24E62FC90002FBDB /* client-handshake.c in Sources */,
+				E813985924E62FC90002FBDB /* handshake.c in Sources */,
+				E813985124E62FC90002FBDB /* getifaddrs.c in Sources */,
 				E86989AA24DCDE4F00DD2BE0 /* YYDebugMessageCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

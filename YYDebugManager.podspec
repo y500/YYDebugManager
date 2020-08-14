@@ -19,14 +19,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
 
   s.dependency 'GCDWebServer'
-  s.dependency 'BLWebSocketsServer'
   s.dependency 'fishhook'
 
-  s.source_files = 'project/*.{h,m}'
-  s.public_header_files = 'project/YYDebugManager.h', 'project/YYDebugWKURLSchemeTaskKit.h'
+  s.source_files = 'project/*.{h,m}', 'project/BLWebSocketsServer/*.{h,m}', 'project/BLWebSocketsServer/libwebsockets/*.{h,c}'
+  s.public_header_files = 'project/YYDebugManager.h', 'project/BLWebSocketsServer/BLWebSocketsServer.h'
   s.resource = "project/Web.bundle"
 
   s.requires_arc = true
   s.frameworks = 'Foundation', 'WebKit'
+  s.libraries = 'z'
 
 end
