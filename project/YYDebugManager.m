@@ -8,7 +8,6 @@
 
 #import "YYDebugManager.h"
 #import "BLWebSocketsServer.h"
-#import <GCDWebServer/GCDWebServer.h>
 #import "YYDebugLogKit.h"
 #import "YYDebugNetworkKit.h"
 
@@ -16,8 +15,6 @@ static int port = 9000;
 static NSString *echoProtocol = @"echo-protocol";
 
 @interface YYDebugManager ()
-
-@property (nonatomic, strong) GCDWebServer *webServer;
 
 @end
 
@@ -42,7 +39,6 @@ static NSString *echoProtocol = @"echo-protocol";
 }
 
 - (void)start {
-    [self startWebServer];
     [self startEchoServer];
 }
 
@@ -79,16 +75,6 @@ static NSString *echoProtocol = @"echo-protocol";
             NSLog(@"Server stopped");
         }];
     }
-}
-
-- (void)startWebServer {
-    _webServer = [[GCDWebServer alloc] init];
-    
-    NSURL *bundleURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"Web" withExtension:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    [_webServer addGETHandlerForBasePath:@"/" directoryPath:[bundle resourcePath] indexFilename:@"index.html" cacheAge:0 allowRangeRequests:YES];
-    
-    [_webServer startWithPort:9001 bonjourName:nil];
 }
 
 - (void)startMonitor {

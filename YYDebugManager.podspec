@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YYDebugManager'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'view log and network data on web'
 
   s.homepage         = 'https://y500.me'
@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '7.0'
 
-  s.dependency 'GCDWebServer'
   s.dependency 'fishhook'
 
   s.source_files = 'project/*.{h,m}', 'project/BLWebSocketsServer/*.{h,m}', 'project/BLWebSocketsServer/libwebsockets/*.{h,c}'

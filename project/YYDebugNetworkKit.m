@@ -24,9 +24,7 @@
 }
 
 - (void)setupNetworkInterceptor {
-    
-//    [WKBrowsingContextController registerSchemeForCustomProtocol:[YYDebugNSURLProtocol class]];
-    
+        
     [NSURLProtocol wk_registerScheme:@"http"];
     [NSURLProtocol wk_registerScheme:@"https"];
     
